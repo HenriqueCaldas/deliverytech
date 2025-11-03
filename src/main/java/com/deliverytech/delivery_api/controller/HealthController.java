@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 
     @GetMapping("/health")
-    public Map<String, String> health(){
+    public Map<String, String> health() {
         return Map.of(
             "status: ", "UP",
             "timestamp", LocalDateTime.now().toString(),
@@ -25,14 +25,15 @@ public class HealthController {
             "Delivery Tech API",
             "1.0.0",
             "JDK 21",
-            "Spring Boot 3.5.6"
+            "Spring Boot 3.5.6"    
         );
     }
 
-    public record AppInfo(
+     public record AppInfo(
         String application,
         String version,
         String developer,
-        String frameworkVersion
-    ) {}
+        String framework
+     ){}
+
 }
