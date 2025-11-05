@@ -2,6 +2,7 @@ package com.deliverytech.delivery_api.service.impl;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -64,20 +65,22 @@ public class UsuarioServiceImpl implements UsuarioService{
     public void logout(String token) {
 
     }
-
     //Método para buscar um usuário específico -  por ID
     @Override
     public Object buscarPorId(Long id) {
+        Objects.requireNonNull(id, "id não pode ser nulo");
         Optional<Usuario> usuario = usuarioRepository.findById(id);
-          if(usuario.isPresent()) {
-                return usuario.get();
-          }
-          throw new RuntimeException("Usuário não encontrado " + id);
+        if (usuario.isPresent()) {
+            return usuario.get();
+        }
+        throw new RuntimeException("Usuário não encontrado " + id);
     }
+
 
     //Método para inativar um usuário
     @Override
     public void inativarUsuario(Long id) {
+        Objects.requireNonNull(id, "id não pode ser nulo");
         Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
