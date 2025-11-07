@@ -13,12 +13,8 @@ public class UserResponse {
     
     // Método temporário até implementar corretamente
     public static UserResponse fromEntity(Object usuario) {
-       // Usuario user = (Usuario) usuario;
         UserResponse response = new UserResponse();
         response.setMessage("Usuário criado com sucesso");
-        //response.setEmail(usuario.getEmail());
-        //response.setNome(usuario.getNome());
-        //response.setRole(usuario.getRole().toString());
         return response;
     }
 }
